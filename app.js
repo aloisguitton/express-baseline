@@ -8,6 +8,7 @@ const multer = require('multer');
 const upload = multer();
 const app = express();
 
+const Router = require('./routes/routes');
 
 process.env.TZ = '+00:00'
 
@@ -24,6 +25,7 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use('/', Router);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
